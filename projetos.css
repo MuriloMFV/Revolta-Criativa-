@@ -1,0 +1,451 @@
+/* Páginas de Projetos Específicos */
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #000;
+    background-image: url("/Designsemnome.jpg");
+}
+
+header {
+    background-color: #ede8d6;
+    color: #000;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Playfair Display", serif;
+    font-size: 18px;
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: #000000;
+    text-decoration: none;
+    position: relative;
+}
+
+header nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #000;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+header nav ul li a:hover::after {
+    width: 100%;
+}
+
+.projeto-page .hero {
+    height: 60vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.projeto-page .hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+}
+
+.projeto-page .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.projeto-page .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.projeto-detalhes .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 60px 20px;
+}
+
+.projeto-texto h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #1a1a1a;
+}
+
+.projeto-texto h3 {
+    font-size: 1.5rem;
+    margin: 30px 0 15px;
+    color: #333;
+}
+
+.lista-aprendizado {
+    list-style: none;
+    padding: 0;
+}
+
+.lista-aprendizado li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.lista-aprendizado i {
+    color: #ffc508;
+    margin-right: 10px;
+}
+
+.info-box {
+    background: #f8f4e9;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 30px 0;
+}
+
+.info-box h3 {
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.galeria-grid img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.galeria-grid img:hover {
+    transform: scale(1.03);
+}
+
+.inscricao {
+    background: #1a1a1a;
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.inscricao h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.form-inscricao {
+    max-width: 600px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-inscricao input,
+.form-inscricao select {
+    padding: 12px;
+    border-radius: 5px;
+    border: none;
+}
+
+.form-inscricao button {
+    grid-column: span 2;
+    background: #ffc508;
+    color: #1a1a1a;
+    border: none;
+    padding: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.form-inscricao button:hover {
+    background: #e6b800;
+}
+
+@media (max-width: 768px) {
+    .projeto-detalhes .container {
+        grid-template-columns: 1fr;
+    }
+    
+    .galeria-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .form-inscricao {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-inscricao button {
+        grid-column: span 1;
+    }
+}
+
+/* Estilos específicos para a página do Lambe */
+.hero-lambe {
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.btn-hero {
+    display: inline-block;
+    background: #ffc508;
+    color: #1a1a1a;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: all 0.3s;
+}
+
+.btn-hero:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.destaque-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 30px 0;
+    position: relative;
+}
+
+.destaque-box i {
+    font-size: 2rem;
+    color: #ffc508;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+}
+
+.destaque-box p:first-of-type {
+    font-style: italic;
+    margin-left: 40px;
+    margin-bottom: 5px;
+}
+
+.destaque-box p:last-of-type {
+    font-weight: bold;
+    text-align: right;
+    margin-top: 0;
+}
+
+.lista-aprendizado i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+.intervencoes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.intervencao-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.intervencao-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.intervencao-card h4 {
+    margin: 15px 20px 5px;
+}
+
+.intervencao-card p {
+    margin: 0 20px 20px;
+    color: #555;
+}
+
+.form-inscricao textarea {
+    grid-column: 1 / -1;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    min-height: 100px;
+}
+
+.form-inscricao button i {
+    margin-right: 10px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .hero-lambe {
+        height: 50vh;
+    }
+    
+    .passo-lambe {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Estilos específicos para palestras */
+.hero-palestras {
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.palestrantes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.palestrante-card {
+    padding: 25px;
+}
+
+.palestrante-card h3 {
+    margin: 15px 0 5px;
+    color: #1a1a1a;
+}
+
+.cargo {
+    color: #ffc508;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.redes-palestrante {
+    margin-top: 15px;
+}
+
+.redes-palestrante a {
+    color: #1a1a1a;
+    margin: 0 5px;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.redes-palestrante a:hover {
+    color: #ffc508;
+}
+
+.programacao {
+    background-color: #f8f4e9;
+    padding: 60px 20px;
+}
+
+.programacao-container {
+    max-width: 800px;
+    margin: 40px auto 0;
+}
+
+.programacao-item p {
+    margin: 5px 0;
+}
+
+.form-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 30px auto 0;
+}
+
+.info-inscricao {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    align-self: start;
+}
+
+.info-inscricao p {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info-inscricao strong {
+    min-width: 80px;
+    display: inline-block;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .form-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-palestras {
+        height: 60vh;
+    }
+}

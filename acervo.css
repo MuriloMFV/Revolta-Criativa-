@@ -1,0 +1,147 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #000;
+    background-color: #ede8d6;
+}
+
+header {
+    background-color: #ede8d6;
+    color: #000;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Playfair Display", serif;
+    font-size: 18px;
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: #000000;
+    text-decoration: none;
+    position: relative;
+}
+
+header nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #000;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+header nav ul li a:hover::after {
+    width: 100%;
+}
+
+#acervo {
+    padding: 50px 20px;
+    background-color: #ede8d6;
+    text-align: center;
+}
+
+#acervo h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    font-family: "Playfair Display", serif;
+    color: #000;
+}
+
+#acervo p {
+    font-size: 18px;
+    margin-bottom: 40px;
+    font-family: "Lora", serif;
+    color: #555;
+}
+
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.book-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.book-card img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.book-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-family: "Playfair Display", serif;
+    color: #000;
+}
+
+.book-card p {
+    font-size: 16px;
+    margin-bottom: 15px;
+    font-family: "Lora", serif;
+    color: #555;
+}
+
+.btn-download {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family: "Lora", serif;
+    transition: background-color 0.3s ease;
+}
+
+.btn-download:hover {
+    background-color: #ffc508;
+    color: #000;
+}
+
+footer {
+    background-color: #000;
+    color: #FFD700;
+    text-align: center;
+    padding: 20px;
+}
+
+footer .social-icons a {
+    color: #FFD700;
+    font-size: 24px;
+    margin: 0 10px;
+    text-decoration: none;
+}

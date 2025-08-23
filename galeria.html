@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja - Revolta Criativa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #000000;
+            --color-secondary: #ffc508;
+            --color-accent: #ede8d6;
+            --color-text: #333333;
+            --color-light: #ffffff;
+            --color-gray: #f5f5f5;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Lora', serif;
+            color: var(--color-text);
+            background-color: var(--color-light);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--color-accent);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .logo {
+            height: 60px;
+            width: auto;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            margin-left: 25px;
+            position: relative;
+        }
+        
+        .nav-menu a {
+            color: var(--color-primary);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 5px 0;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--color-secondary);
+        }
+        
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-secondary);
+            bottom: 0;
+            left: 0;
+            transition: var(--transition);
+        }
+        
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+        }
+        
+        .cart-icon {
+            position: relative;
+            margin-left: 20px;
+            cursor: pointer;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--color-secondary);
+            color: var(--color-primary);
+            font-size: 12px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+        
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/Designsemnome.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--color-light);
+            margin-bottom: 50px;
+        }
+        
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+        
+        .hero-content p {
+            font-size: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .hero .logo {
+            margin: 10px;
+            border-radius: 10px;
+            margin-top: 20px;
+            height: 200px;
+            
+        }
+
+        .hero .logo:hover {
+            transform: scale(1.05);
+            transition: var(--transition);
+            
+        }
+
+
+        
+        /* Produtos Section */
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--color-secondary);
+        }
+        
+        .produtos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .produto-card {
+            background-color: var(--color-light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .produto-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .produto-imagem {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .produto-imagem img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .produto-card:hover .produto-imagem img {
+            transform: scale(1.05);
+        }
+        
+        .produto-info {
+            padding: 20px;
+        }
+        
+        .produto-info h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--color-primary);
+        }
+        
+        .produto-desc {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .preco {
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--color-primary);
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .btn-adicionar {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: var(--color-primary);
+            color: var(--color-light);
+            border: none;
+            border-radius: 5px;
+            font-family: 'Lora', serif;
+            font-size: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .btn-adicionar:hover {
+            background-color: var(--color-secondary);
+            color: var(--color-primary);
+        }
+        
+        /* Modal Carrinho */
+        .carrinho-modal {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 100%;
+            max-width: 400px;
+            height: 100vh;
+            background-color: var(--color-light);
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: var(--transition);
+            overflow-y: auto;
+            padding: 20px;
+        }
+        
+        .carrinho-modal.active {
+            right: 0;
+        }
+        
+        .carrinho-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .close-carrinho {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        .carrinho-item {
+            display: flex;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .carrinho-item-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-right: 15px;
+        }
+        
+        .carrinho-item-info {
+            flex: 1;
+        }
+        
+        .carrinho-item-titulo {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .carrinho-item-preco {
+            color: #666;
+        }
+        
+        .carrinho-item-remover {
+            background: none;
+            border: none;
+            color: #ff0000;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .carrinho-total {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 2px solid #eee;
+            font-size: 20px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .btn-finalizar {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: var(--color-primary);
+            color: var(--color-light);
+            border: none;
+            border-radius: 5px;
+            font-family: 'Lora', serif;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .btn-finalizar:hover {
+            background-color: var(--color-secondary);
+            color: var(--color-primary);
+        }
+        
+        .carrinho-vazio {
+            text-align: center;
+            padding: 30px 0;
+            color: #666;
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+        
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Modal de informações do cliente */
+        .info-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 90%;
+            max-width: 500px;
+            background-color: var(--color-light);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            z-index: 1001;
+            transition: var(--transition);
+        }
+        
+        .info-modal.active {
+            transform: translate(-50%, -50%) scale(1);
+        }
+        
+        .info-modal h3 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Lora', serif;
+        }
+        
+        .btn-enviar {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: var(--color-primary);
+            color: var(--color-light);
+            border: none;
+            border-radius: 5px;
+            font-family: 'Lora', serif;
+            font-size: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .btn-enviar:hover {
+            background-color: var(--color-secondary);
+            color: var(--color-primary);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--color-primary);
+            color: var(--color-light);
+            padding: 50px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--color-secondary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--color-secondary);
+            padding-left: 5px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--color-light);
+            transition: var(--transition);
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--color-secondary);
+            color: var(--color-primary);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            
+            .hero-content p {
+                font-size: 18px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                background-color: var(--color-accent);
+                width: 100%;
+                height: calc(100vh - 70px);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: var(--transition);
+                z-index: 99;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-menu li {
+                margin: 15px 0;
+            }
+            
+            .hero {
+                height: 300px;
+            }
+            
+            .hero-content h1 {
+                font-size: 32px;
+            }
+            
+            .carrinho-modal {
+                max-width: 100%;
+            }
+
+            .logo-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .logo {
+                height: 40px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                height: 250px;
+            }
+            
+            .hero-content h1 {
+                font-size: 28px;
+            }
+            
+            .hero-content p {
+                font-size: 16px;
+            }
+            
+            .produtos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo-container">
+                
+            </div>
+            
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="telas.html">Telas</a></li>
+                <li><a href="acervo.html">Acervo</a></li>
+                <li><a href="loja.html">Loja</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+            
+            <div class="header-actions">
+                <div class="cart-icon" id="cart-button">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Loja Revolta Criativa</h1>
+            <p>Adquira obras exclusivas que transformam emoções em arte</p>
+            <img src="img/Logos/rvltcrtv.jpg" alt="Logo Revolta Criativa" class="logo">
+            <img src="img/Logos/melloatelie.jpg" alt="Logo Mello Atelie" class="logo">
+        </div>
+    </section>
+
+    <section id="bordados-telas">
+        <div class="container">
+            <div class="section-title">
+                <h2>Bordados e Telas</h2>
+                <p>Arte em tecido e pintura para decorar seu espaço</p>
+            </div>
+            
+            <div class="produtos-grid">
+                <!-- Produto 1 -->
+                <div class="produto-card">
+                    <div class="produto-imagem">
+                        <img src="img/bordados/feraferida.heic" alt="Tela Arraia">
+                    </div>
+                    <div class="produto-info">
+                        <h3>Tela "Arraia"</h3>
+                        <p class="produto-desc">Obra exclusiva com técnicas mistas sobre tela</p>
+                        <span class="preco">R$ 500,00</span>
+                        <button class="btn-adicionar" data-nome="Tela Arraia" data-preco="500" data-imagem="../Revolta Criativa/img/bordados/arraia.png">
+                            Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Produto 2 -->
+                <div class="produto-card">
+                    <div class="produto-imagem">
+                        <img src="img/bordados/tartaruga.png" alt="Bordado Tartaruga">
+                    </div>
+                    <div class="produto-info">
+                        <h3>Bordado "Tartaruga"</h3>
+                        <p class="produto-desc">Bordado artístico em tecido premium</p>
+                        <span class="preco">R$ 300,00</span>
+                        <button class="btn-adicionar" data-nome="Bordado Tartaruga" data-preco="300" data-imagem="img/bordados/tartaruga.png">
+                            Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Produto 3 -->
+                <div class="produto-card">
+                    <div class="produto-imagem">
+                        <img src="img/bordados/bordadofotocoração.heic" alt="Tela Gato">
+                    </div>
+                    <div class="produto-info">
+                        <h3>Bordado Fotôgráfico</h3>
+                        <p class="produto-desc">Bordado para Polaroids 9x9</p>
+                        <span class="preco">R$ 70,00</span>
+                        <button class="btn-adicionar" data-nome="bordadofotografico" data-preco="70" data-imagem="img/telas/telagato.png">
+                            Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Produto 4 -->
+                <div class="produto-card">
+                    <div class="produto-imagem">
+                        <img src="img/bordados/baleia.heic" alt="Tela Gato">
+                    </div>
+
+                    <div class="produto-info">
+                        <h3>Bordado Baleia</h3>
+                        <p class="produto-desc">Bordado com Pintura</p>
+                        <span class="preco">R$ 70,00</span>
+                        <button class="btn-adicionar" data-nome="Tela Gato" data-preco="700" data-imagem="img/telas/telagato.png">
+                            Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+
+                 <!-- Produto 5 -->
+                 <div class="produto-card">
+                    <div class="produto-imagem">
+                        <img src="img/bordados/latinamissangas.heic" alt="Tela Gato">
+                    </div>
+
+                    <div class="produto-info">
+                        <h3>Bordado Latina Demais</h3>
+                        <p class="produto-desc">Bordado com Missangas</p>
+                        <span class="preco">R$ 45,00</span>
+                        <button class="btn-adicionar" data-nome="Tela Gato" data-preco="45" data-imagem="img/telas/telagato.png">
+                            Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Produto 6 -->
+                <div class="produto-card">
+                    <div class="produto-imagem">
+                        <img src="img/bordados/abraço.heic" alt="Tela Gato">
+                    </div>
+
+                    <div class="produto-info">
+                        <h3>Bordado Amor</h3>
+                        <p class="produto-desc">Bordado para seu amor</p>
+                        <span class="preco">R$ 70,00</span>
+                        <button class="btn-adicionar" data-nome="Tela Gato" data-preco="45" data-imagem="img/telas/telagato.png">
+                            Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="amigurumis">
+        <div class="container">
+            <div class="section-title">
+                <h2>Amigurumis</h2>
+                <p>Bonecos artesanais feitos com carinho e técnica</p>
+            </div>
+            
+            <div class="produtos-grid">
+                <!-- Produto Amigurumi 1 -->
+                <div class="produto-card">
+                    <div class="produto-imagem">
+                        <img src="img/amigurumis/surfista.webp" alt="surfista Amigurumi">
+                    </div>
+                    <div class="produto-info">
+                        <h3>Surfista</h3>
+                        <p class="produto-desc">Surfista feito à mão com linha premium</p>
+                        <span class="preco">R$ 85,00</span>
+                        <button class="btn-adicionar" data-nome="Urso Amigurumi" data-preco="85" data-imagem="img/amigurumis/urso.amigurumi">
+                            Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Produto Amigurumi 2 -->
+                <div class="produto-card">
+                    <div class="produto-imagem">
+                        <img src="img/amigurumis/coelho.heic" alt="Coelho Amigurumi">
+                    </div>
+                    <div class="produto-info">
+                        <h3>Coelho Amigurumi</h3>
+                        <p class="produto-desc">Coelho fofinho com detalhes em contraste</p>
+                        <span class="preco">R$ 75,00</span>
+                        <button class="btn-adicionar" data-nome="Coelho Amigurumi" data-preco="75" data-imagem="img/amigurumis/coelho.amigurumi">
+                            Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Produto Amigurumi 3 -->
+                <div class="produto-card">
+                    <div class="produto-imagem">
+                        <img src="img/amigurumis/leoes.heic" alt="Gato Amigurumi">
+                    </div>
+                    <div class="produto-info">
+                        <h3>Kit Leões</h3>
+                        <p class="produto-desc">Kit Bebê Leões</p>
+                        <span class="preco">R$ 80,00</span>
+                        <button class="btn-adicionar" data-nome="Gato Amigurumi" data-preco="80" data-imagem="img/amigurumis/gato.amigurumi">
+                            Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+
+                      <div class="produto-card">
+                    <div class="produto-imagem">
+                        <img src="img/amigurumis/periquito.heic" alt="Periquito Amigurumi">
+                    </div>
+                    <div class="produto-info">
+                        <h3>Periquito Amigurumi</h3>
+                        <p class="produto-desc">Periquito Australiano Decorativo</p>
+                        <span class="preco">R$ 80,00</span>
+                        <button class="btn-adicionar" data-nome="Gato Amigurumi" data-preco="80" data-imagem="img/amigurumis/gato.amigurumi">
+                            Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+
+                 <div class="produto-card">
+                    <div class="produto-imagem">
+                        <img src="img/amigurumis/polvo.heic" alt="Periquito Amigurumi">
+                    </div>
+                    <div class="produto-info">
+                        <h3>Polvo Amigurumi</h3>
+                        <p class="produto-desc">Polvo Amigurumi</p>
+                        <span class="preco">R$ 80,00</span>
+                        <button class="btn-adicionar" data-nome="Gato Amigurumi" data-preco="80" data-imagem="img/amigurumis/gato.amigurumi">
+                            Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Produto Amigurumi 4 -->
+                <div class="produto-card">
+                    <div class="produto-imagem">
+                        <img src="img/amigurumis/lirio.heic" alt="Dinossauro Amigurumi">
+                    </div>
+                    <div class="produto-info">
+                        <h3>Lírio Amigurumi</h3>
+                        <p class="produto-desc">Flor Lirío Feita a Mão</p>
+                        <span class="preco">R$ 90,00</span>
+                        <button class="btn-adicionar" data-nome="Dinossauro Amigurumi" data-preco="90" data-imagem="img/amigurumis/dinossauro.amigurumi">
+                            Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Carrinho -->
+    <div class="overlay" id="overlay"></div>
+    
+    <div class="carrinho-modal" id="carrinho-modal">
+        <div class="carrinho-header">
+            <h3>Seu Carrinho</h3>
+            <button class="close-carrinho" id="close-carrinho">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="carrinho-itens">
+            <!-- Itens serão adicionados dinamicamente -->
+        </div>
+        
+        <div class="carrinho-total">
+            <span>Total:</span>
+            <span>R$ <span id="total-carrinho">0,00</span></span>
+        </div>
+        
+        <button class="btn-finalizar" id="btn-finalizar">Finalizar Compra</button>
+    </div>
+
+    <!-- Modal de informações do cliente -->
+    <div class="info-modal" id="info-modal">
+        <h3>Informações para Finalizar a Compra</h3>
+        <form id="cliente-form">
+            <div class="form-group">
+                <label for="nome">Nome Completo</label>
+                <input type="text" id="nome" required>
+            </div>
+            <div class="form-group">
+                <label for="telefone">Telefone</label>
+                <input type="tel" id="telefone" required>
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="endereco">Endereço</label>
+                <input type="text" id="endereco" required>
+            </div>
+            <button type="submit" class="btn-enviar">Enviar Pedido via WhatsApp</button>
+        </form>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Revolta Criativa</h3>
+                    <p>Transformando emoções em arte através de telas, bordados e expressões criativas.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="telas.html">Telas</a></li>
+                        <li><a href="acervo.html">Acervo</a></li>
+                        <li><a href="loja.html">Loja</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Informações</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Política de Envio</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Perguntas Frequentes</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contato</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> contato@revoltacriativa.com</li>
+                        <li><i class="fas fa-phone"></i> (11) 99999-9999</li>
+                        <li><i class="fas fa-map-marker-alt"></i> São Paulo, Brasil</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Revolta Criativa. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Elementos do DOM
+            const cartButton = document.getElementById('cart-button');
+            const closeCart = document.getElementById('close-carrinho');
+            const overlay = document.getElementById('overlay');
+            const cartModal = document.getElementById('carrinho-modal');
+            const cartItems = document.querySelector('.carrinho-itens');
+            const totalElement = document.getElementById('total-carrinho');
+            const cartCount = document.querySelector('.cart-count');
+            const addToCartButtons = document.querySelectorAll('.btn-adicionar');
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            const finalizarBtn = document.getElementById('btn-finalizar');
+            const infoModal = document.getElementById('info-modal');
+            const clienteForm = document.getElementById('cliente-form');
+            
+            // Carrinho de compras
+            let cart = [];
+            let total = 0;
+            
+            // Abrir/fechar menu mobile
+            menuToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+            });
+            
+            // Abrir carrinho
+            cartButton.addEventListener('click', function() {
+                cartModal.classList.add('active');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            // Fechar carrinho
+            closeCart.addEventListener('click', closeCartModal);
+            overlay.addEventListener('click', closeCartModal);
+            
+            function closeCartModal() {
+                cartModal.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+            
+            // Adicionar produto ao carrinho
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const name = this.getAttribute('data-nome');
+                    const price = parseFloat(this.getAttribute('data-preco'));
+                    const image = this.getAttribute('data-imagem');
+                    
+                    addToCart(name, price, image);
+                    
+                    // Feedback visual
+                    this.textContent = 'Adicionado!';
+                    this.style.backgroundColor = '#4CAF50';
+                    
+                    setTimeout(() => {
+                        this.textContent = 'Adicionar ao Carrinho';
+                        this.style.backgroundColor = '';
+                    }, 1500);
+                });
+            });
+            
+            function addToCart(name, price, image) {
+                // Verificar se o produto já está no carrinho
+                const existingItem = cart.find(item => item.name === name);
+                
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        name,
+                        price,
+                        image,
+                        quantity: 1
+                    });
+                }
+                
+                updateCart();
+            }
+            
+            function removeFromCart(index) {
+                if (cart[index].quantity > 1) {
+                    cart[index].quantity -= 1;
+                } else {
+                    cart.splice(index, 1);
+                }
+                
+                updateCart();
+            }
+            
+            function updateCart() {
+                // Limpar carrinho
+                cartItems.innerHTML = '';
+                total = 0;
+                
+                if (cart.length === 0) {
+                    cartItems.innerHTML = '<p class="carrinho-vazio">Seu carrinho está vazio</p>';
+                    cartCount.textContent = '0';
+                    totalElement.textContent = '0,00';
+                    return;
+                }
+                
+                // Adicionar itens ao carrinho
+                cart.forEach((item, index) => {
+                    const itemTotal = item.price * item.quantity;
+                    total += itemTotal;
+                    
+                    const cartItemElement = document.createElement('div');
+                    cartItemElement.classList.add('carrinho-item');
+                    cartItemElement.innerHTML = `
+                        <img src="${item.image}" alt="${item.name}" class="carrinho-item-img">
+                        <div class="carrinho-item-info">
+                            <div class="carrinho-item-titulo">${item.name}</div>
+                            <div class="carrinho-item-preco">R$ ${item.price.toFixed(2)} x ${item.quantity}</div>
+                            <button class="carrinho-item-remover" data-index="${index}">Remover</button>
+                        </div>
+                    `;
+                    
+                    cartItems.appendChild(cartItemElement);
+                    
+                    // Adicionar evento de remoção
+                    const removeButton = cartItemElement.querySelector('.carrinho-item-remover');
+                    removeButton.addEventListener('click', function() {
+                        const itemIndex = parseInt(this.getAttribute('data-index'));
+                        removeFromCart(itemIndex);
+                    });
+                });
+                
+                // Atualizar total e contador
+                totalElement.textContent = total.toFixed(2);
+                cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+            }
+            
+            // Finalizar compra - abrir modal de informações
+            finalizarBtn.addEventListener('click', function() {
+                if (cart.length === 0) {
+                    alert('Seu carrinho está vazio!');
+                    return;
+                }
+                
+                // Fechar carrinho e abrir modal de informações
+                closeCartModal();
+                infoModal.classList.add('active');
+                overlay.classList.add('active');
+            });
+            
+            // Enviar pedido via WhatsApp
+            clienteForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Coletar informações do formulário
+                const nome = document.getElementById('nome').value;
+                const telefone = document.getElementById('telefone').value;
+                const email = document.getElementById('email').value;
+                const endereco = document.getElementById('endereco').value;
+                
+                // Montar mensagem para WhatsApp
+                let mensagem = `Olá, Revolta Criativa! Gostaria de finalizar meu pedido:\n\n`;
+                
+                // Adicionar itens do carrinho
+                cart.forEach(item => {
+                    mensagem += `• ${item.name} - R$ ${item.price.toFixed(2)} x ${item.quantity}\n`;
+                });
+                
+                mensagem += `\nTotal: R$ ${total.toFixed(2)}\n\n`;
+                mensagem += `Minhas informações:\n`;
+                mensagem += `Nome: ${nome}\n`;
+                mensagem += `Telefone: ${telefone}\n`;
+                mensagem += `E-mail: ${email}\n`;
+                mensagem += `Endereço: ${endereco}\n\n`;
+                mensagem += `Por favor, confirmem a disponibilidade e formas de pagamento.`;
+                
+                // Codificar a mensagem para URL
+                const mensagemCodificada = encodeURIComponent(mensagem);
+                
+                // Número do WhatsApp da Revolta Criativa (substitua pelo número real)
+                const numeroWhatsApp = "5548999624453"; // Exemplo: (11) 99999-9999
+                
+                // Redirecionar para WhatsApp
+                window.open(`https://wa.me/${numeroWhatsApp}?text=${mensagemCodificada}`, '_blank');
+                
+                // Limpar carrinho e fechar modais
+                cart = [];
+                updateCart();
+                infoModal.classList.remove('active');
+                overlay.classList.remove('active');
+                clienteForm.reset();
+            });
+            
+            // Fechar modal de informações ao clicar no overlay
+            overlay.addEventListener('click', function() {
+                infoModal.classList.remove('active');
+                overlay.classList.remove('active');
+            });
+            
+            // Inicializar carrinho
+            updateCart();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acervo de Livros - Revolta Criativa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #000000;
+            --color-secondary: #ffc508;
+            --color-accent: #ede8d6;
+            --color-text: #333333;
+            --color-light: #ffffff;
+            --color-gray: #f5f5f5;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Lora', serif;
+            color: var(--color-text);
+            background-color: var(--color-light);
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--color-accent);
+            padding: 15px 0;
+            box-shadow: var(--shadow);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            margin-left: 25px;
+            position: relative;
+        }
+        
+        .nav-menu a {
+            color: var(--color-primary);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 5px 0;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--color-secondary);
+        }
+        
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-secondary);
+            bottom: 0;
+            left: 0;
+            transition: var(--transition);
+        }
+        
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+        
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/livros/banner.png');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--color-light);
+            margin-bottom: 50px;
+        }
+        
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+        
+        .hero-content p {
+            font-size: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Acervo Section */
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--color-secondary);
+        }
+        
+        .acervo-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+        
+        .drive-container {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+            margin-bottom: 50px;
+        }
+        
+        .drive-container iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+            border-radius: 5px;
+        }
+        
+        .livros-destaque {
+            margin: 50px 0;
+        }
+        
+        .livros-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .livro-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .livro-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .livro-capa {
+            height: 300px;
+            overflow: hidden;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .livro-capa img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .livro-capa .placeholder {
+            font-size: 60px;
+            color: #ccc;
+        }
+        
+        .livro-info {
+            padding: 20px;
+        }
+        
+        .livro-info h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--color-primary);
+        }
+        
+        .livro-info p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .btn-ler {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: var(--color-primary);
+            color: var(--color-light);
+            border: none;
+            border-radius: 5px;
+            font-family: 'Lora', serif;
+            font-size: 14px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        
+        .btn-ler:hover {
+            background-color: var(--color-secondary);
+            color: var(--color-primary);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--color-primary);
+            color: var(--color-light);
+            padding: 50px 0 20px;
+            margin-top: 50px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--color-secondary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--color-secondary);
+            padding-left: 5px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--color-light);
+            transition: var(--transition);
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--color-secondary);
+            color: var(--color-primary);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            
+            .hero-content p {
+                font-size: 18px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                background-color: var(--color-accent);
+                width: 100%;
+                height: calc(100vh - 70px);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: var(--transition);
+                z-index: 99;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-menu li {
+                margin: 15px 0;
+            }
+            
+            .hero {
+                height: 250px;
+            }
+            
+            .hero-content h1 {
+                font-size: 32px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                height: 200px;
+            }
+            
+            .hero-content h1 {
+                font-size: 28px;
+            }
+            
+            .hero-content p {
+                font-size: 16px;
+            }
+            
+            .livros-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">Revolta Criativa</a>
+            
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="telas.html">Telas</a></li>
+                <li><a href="acervo.html">Acervo</a></li>
+                <li><a href="loja.html">Loja</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Acervo Literário</h1>
+            <p>Descubra obras que inspiram e transformam</p>
+        </div>
+    </section>
+
+    <section id="acervo">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nosso Acervo</h2>
+                <p>Uma coleção curada de livros para expandir horizontes</p>
+            </div>
+            
+            <div class="acervo-intro">
+                <p>Nosso acervo reúne obras cuidadosamente selecionadas que dialogam com a essência da Revolta Criativa. Aqui você encontrará desde clássicos da literatura até obras contemporâneas que inspiram reflexão e transformação.</p>
+            </div>
+            
+            <div class="drive-container">
+                <h3>Biblioteca Digital</h3>
+                <p>Acesse nossa coleção completa de livros através do Google Drive:</p>
+                <iframe src="https://drive.google.com/embeddedfolderview?id=1zOaeuamUkjpHhOF2XJocdI_LIxCiSugo#list"></iframe>
+            </div>
+            
+            <div class="livros-destaque">
+                <div class="section-title">
+                    <h2>Destaques</h2>
+                    <p>Algumas obras em evidência</p>
+                </div>
+                
+                <div class="livros-grid">
+                    <!-- Livro 1 -->
+                    <div class="livro-card">
+                        <div class="livro-capa">
+                            <div class="placeholder">
+                                <i class="fas fa-book"></i>
+                            </div>
+                        </div>
+                        <div class="livro-info">
+                            <h3>Arte da Resistência</h3>
+                            <p>Explorando a criatividade como forma de protesto e transformação social.</p>
+                            <a href="#" class="btn-ler">Ler Agora</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Livro 2 -->
+                    <div class="livro-card">
+                        <div class="livro-capa">
+                            <div class="placeholder">
+                                <i class="fas fa-book"></i>
+                            </div>
+                        </div>
+                        <div class="livro-info">
+                            <h3>Poemas Revoltados</h3>
+                            <p>Coletânea de poesias que ecoam o grito da juventude contemporânea.</p>
+                            <a href="#" class="btn-ler">Ler Agora</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Livro 3 -->
+                    <div class="livro-card">
+                        <div class="livro-capa">
+                            <div class="placeholder">
+                                <i class="fas fa-book"></i>
+                            </div>
+                        </div>
+                        <div class="livro-info">
+                            <h3>Manifesto Criativo</h3>
+                            <p>Um guia para artistas que desejam romper com convenções.</p>
+                            <a href="#" class="btn-ler">Ler Agora</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Livro 4 -->
+                    <div class="livro-card">
+                        <div class="livro-capa">
+                            <div class="placeholder">
+                                <i class="fas fa-book"></i>
+                            </div>
+                        </div>
+                        <div class="livro-info">
+                            <h3>Telas que Falam</h3>
+                            <p>A narrativa por trás das obras visuais da Revolta Criativa.</p>
+                            <a href="#" class="btn-ler">Ler Agora</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Revolta Criativa</h3>
+                    <p>Transformando emoções em arte através de telas, bordados e expressões criativas.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="telas.html">Telas</a></li>
+                        <li><a href="acervo.html">Acervo</a></li>
+                        <li><a href="loja.html">Loja</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Informações</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Política de Empréstimo</a></li>
+                        <li><a href="#">Como Acessar o Acervo</a></li>
+                        <li><a href="#">Sugerir uma Obra</a></li>
+                        <li><a href="#">Perguntas Frequentes</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contato</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> contato@revoltacriativa.com</li>
+                        <li><i class="fas fa-phone"></i> (11) 99999-9999</li>
+                        <li><i class="fas fa-map-marker-alt"></i> São Paulo, Brasil</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Revolta Criativa. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            // Abrir/fechar menu mobile
+            menuToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+            });
+            
+            // Fechar menu ao clicar em um link
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

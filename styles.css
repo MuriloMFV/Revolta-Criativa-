@@ -1,0 +1,813 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #000;
+    background-color: #ede8d6;
+}
+
+header {
+    background-color: #ede8d6;
+    color: #000;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Playfair Display", serif;
+    font-size: 18px;
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: #000000;
+    text-decoration: none;
+    position: relative;
+}
+
+header nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #000;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+header nav ul li a:hover::after {
+    width: 100%;
+}
+
+#banner {
+    background-image: url('revoltasite.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #000000;
+    text-align: center;
+    padding: 10px 20px;
+    width: 100%;
+    height: 100vh;
+}
+
+#banner h1 {
+    font-size: 60px;
+    margin-bottom: 20px;
+    font-family: "Playfair Display", serif;
+    text-shadow: 2px 2px 4px #ffffff;
+}
+
+#banner p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-family: "Lora", serif;
+    text-shadow: 2px 2px 4px #ffffff;
+}
+
+.buttons {
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0 10px;
+}
+
+.btn-instagram {
+    background-color: #000;
+    color: #fff;
+}
+
+.btn-instagram:hover {
+    background-color: #ffc508;
+    transform: scale(1.05);
+}
+
+.btn-obras {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.btn-obras:hover {
+    background-color: #ffc508;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.about {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 50px 20px;
+    text-align: center;
+    font-family: "Playfair Display", serif;
+    font-size: 18px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-title h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+.section-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    
+}
+
+.section-text {
+    flex: 1;
+    text-align: left;
+    margin-bottom: 120px;
+}
+
+.section-text p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.section-image {
+    flex: 1;
+}
+
+/* ESTRUTURA BASE TEXTO */
+.revolta-container {
+    display: inline-block;
+    position: relative;
+    margin: 2rem;
+}
+
+.revolta-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.revolta-image {
+    display: block;
+    width: 350px;
+    height: auto;
+    transition: transform 0.4s ease-out;
+}
+
+.revolta-border {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 6px; /* Altura borda */
+    background: yellow;
+    transform: translateY(100%);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    z-index: 10;
+}
+
+
+.revolta-image-wrapper:hover .revolta-border {
+    transform: translateY(-10px);
+    height: 8px; 
+    background: yellow;
+}
+
+.revolta-image-wrapper:hover .revolta-image {
+    transform: scale(1.03); 
+}
+
+
+
+
+
+#portfolio {
+    padding: 50px 20px;
+    background-color: #fff; /* Cor Fundo */
+    text-align: center;
+}
+
+#portfolio h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    font-family: "Playfair Display", serif;
+    color: #000;
+}
+
+#portfolio p {
+    font-size: 18px;
+    margin-bottom: 40px;
+    font-family: "Lora", serif;
+    color: #000000;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(56, 56, 56, 0.7);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 10px;
+}
+
+.gallery-item:hover .overlay {
+    opacity: 1;
+}
+
+.overlay h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-family: "Playfair Display", serif;
+}
+
+.overlay p {
+    font-size: 16px;
+    font-family: "Lora", serif;
+    text-align: center;
+    padding: 0 20px;
+}
+
+#acervo {
+    padding: 50px 20px;
+    background-color: #dfdfdf; /* Cor de fundo da seção */
+    text-align: center;
+}
+
+#acervo h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    font-family: "Playfair Display", serif;
+    color: #000;
+}
+
+#acervo p {
+    font-size: 18px;
+    margin-bottom: 40px;
+    font-family: "Lora", serif;
+    color: #555;
+}
+
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.book-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.book-card img {
+    max-width: 200px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.book-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-family: "Playfair Display", serif;
+    color: #000;
+}
+
+.book-card p {
+    font-size: 16px;
+    margin-bottom: 15px;
+    font-family: "Lora", serif;
+    color: #555;
+}
+
+.btn-download {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family: "Lora", serif;
+    transition: background-color 0.3s ease;
+}
+
+.btn-download:hover {
+    background-color: #ffc508;
+    color: #000;
+}
+
+.acervo-completo {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.btn-acervo {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px;
+    font-family: "Lora", serif;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-acervo:hover {
+    background-color: #ffc508;
+    color: #000;
+    transform: scale(1.05);
+}
+
+section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Seção Projetos */
+#projetos-sociais {
+    padding: 80px 20px;
+    background-color: #f7efdb;
+}
+
+#projetos-sociais h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 15px;
+    color: #1a1a1a;
+    font-family: 'Playfair Display', serif;
+}
+
+#projetos-sociais .subtitulo {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 50px;
+    font-family: 'Lora', serif;
+}
+
+.projetos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.projeto-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.projeto-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.projeto-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-bottom: 3px solid #ffc508;
+}
+
+.projeto-content {
+    padding: 25px;
+}
+
+.projeto-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #1a1a1a;
+}
+
+.projeto-content p {
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.projeto-detalhes {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 25px;
+}
+
+.projeto-detalhes li {
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.projeto-detalhes i {
+    color: #ffc508;
+    width: 20px;
+    margin-right: 10px;
+}
+
+.btn-projeto {
+    display: inline-block;
+    background: #1a1a1a;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-projeto:hover {
+    background: #ffc508;
+    color: #1a1a1a;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .projetos-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .projeto-card {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
+/* Páginas de Projetos Específicos */
+.projeto-page .hero {
+    height: 60vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.projeto-page .hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+}
+
+.projeto-page .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.projeto-page .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.projeto-detalhes .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 60px 20px;
+}
+
+.projeto-texto h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #1a1a1a;
+}
+
+.projeto-texto h3 {
+    font-size: 1.5rem;
+    margin: 30px 0 15px;
+    color: #333;
+}
+
+.lista-aprendizado {
+    list-style: none;
+    padding: 0;
+}
+
+.lista-aprendizado li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.lista-aprendizado i {
+    color: #ffc508;
+    margin-right: 10px;
+}
+
+.info-box {
+    background: #f8f4e9;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 30px 0;
+}
+
+.info-box h3 {
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.galeria-grid img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.galeria-grid img:hover {
+    transform: scale(1.03);
+}
+
+.inscricao {
+    background: #1a1a1a;
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.inscricao h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.form-inscricao {
+    max-width: 600px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-inscricao input,
+.form-inscricao select {
+    padding: 12px;
+    border-radius: 5px;
+    border: none;
+}
+
+.form-inscricao button {
+    grid-column: span 2;
+    background: #ffc508;
+    color: #1a1a1a;
+    border: none;
+    padding: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.form-inscricao button:hover {
+    background: #e6b800;
+}
+
+@media (max-width: 768px) {
+    .projeto-detalhes .container {
+        grid-template-columns: 1fr;
+    }
+    
+    .galeria-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .form-inscricao {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-inscricao button {
+        grid-column: span 1;
+    }
+}
+
+.livros-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .livro-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  .livro-card a {
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .livro-card i {
+    font-size: 2rem;
+    color: #ff6b6b;
+    margin-bottom: 10px;
+  }
+
+  .contato {
+    background: linear-gradient(135deg, #fff, #f9f9f9);
+    padding: 50px 20px;
+    text-align: center;
+    border-top: 4px solid #ffcc00;
+    border-bottom: 4px solid #ffcc00;
+    position: relative;
+    animation: fadeInUp 1.2s ease;
+}
+
+.contato h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+    font-family: 'Playfair Display', serif;
+}
+
+.contato::before {
+    content: "🌻";
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    font-size: 2em;
+    animation: float 3s ease-in-out infinite;
+}
+
+.contato::after {
+    content: "🌼";
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    font-size: 2em;
+    animation: float 4s ease-in-out infinite;
+}
+
+.contato h2 {
+    color: #000;
+    margin-bottom: 10px;
+    font-size: 2em;
+    font-family: 'Georgia', serif;
+}
+
+.contato p {
+    font-size: 1.1em;
+    color: #444;
+    margin-bottom: 30px;
+}
+
+.contato form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contato input,
+.contato textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+}
+
+.contato button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.contato button:hover {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
